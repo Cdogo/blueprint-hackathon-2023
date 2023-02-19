@@ -27,6 +27,6 @@ export default function Feed(){
     }, [posts])
 
     return(<div>
-        {posts.length !== 0 && posts.map((post) => {return(<Post username = {post.user} website = {post.link}/>)})}
+        {posts.length !== 0 && posts.map((post) => {return(<Post key = {post.id} username = {post.user} website = {post.link}/>)})}
     </div>)
 }

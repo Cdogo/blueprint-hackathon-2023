@@ -49,7 +49,7 @@ export default function CommentFeed({id}){
             </form>}
             <div className="mt-2 flex flex-col gap-2 max-h-[calc(100vh-150px)] overflow-y-auto">
                 <h1 className = 'font-bold'>Comments</h1>
-                {comments && comments.map((comment) => <Comment {...comment}/>)}
+                {comments && comments.map((comment) => <Comment key = {comment.id} {...comment}/>)}
             </div>
         </div>
     )
