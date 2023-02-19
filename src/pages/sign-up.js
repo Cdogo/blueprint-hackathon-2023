@@ -27,7 +27,7 @@ export default function SignUp(){
             console.log(user)
           }).catch((error) => {
             const errorCode = error.code.split('/')[1];
-            console.log(errorCode)})
+            alert(errorCode)})
         return 0;
     }
 
