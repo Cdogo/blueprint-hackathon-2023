@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 
 import { db, firestore } from "../firebase";
 
-import { collection, query, where, limit, orderBy, getDocs, startAfter } from "firebase/firestore";
+import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 import Comment from "./comment"
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -13,29 +13,16 @@ export default function CommentFeed({id}){
 
     let [user] = useAuthState(auth)
 
-    const [comments, setComments] = useState([])
+    const [comments] = useCollectionData(firestore.collection(`websites/${id}/comment`))
 
     const [comment, setComment] = useState('')
-
-    useEffect(() => {
-        const getData = async () => {
-            const data = await getDocs(query(collection(db, `websites/${id}/comment`)))
-            let predata = []
-            data.forEach((doc) => {
-                predata.push({id:doc.id, ...doc.data()})
-            })
-            setComments(predata) 
-            console.log(comments)    
-        }
-        getData()
-    }, [])
     const PostComment = async (e) => {
         e.preventDefault();
         const commentRef = firestore.collection(`websites/${id}/comment`);
         var currentdate = new Date();
         await commentRef.add({
             comment:comment,
-            timeposted:`${currentdate.getDate()} - ${currentdate.getMonth()} - ${currentdate.getFullYear()}`,
+            timeposted:`${currentdate.getDate()}/${currentdate.getMonth() + 1}/${currentdate.getFullYear()}`,
             username:user.email,
             userPicture:'https://pbs.twimg.com/profile_images/905183271046193153/q_P1KBUJ_400x400.jpg'
         })
