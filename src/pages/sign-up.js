@@ -36,10 +36,11 @@ export default function SignUp(){
 
     return(
         <main>
-            <form onSubmit = {onSignUpSubmit}>
-                <input className = '' type = 'text' value = {username} onChange = {(e) =>{setUsername(e.target.value)}}/><br/>
-                <input className = '' type = 'password' value = {password} onChange = {(e) =>{setPassword(e.target.value)}}/><br/>
-                <input className = '' type = 'submit' value = 'Sign Up'/>
+            <form onSubmit = {onSignUpSubmit} className = 'max-w-[300px] w-full m-auto flex flex-col gap-1 md:mt-5 mt-1'>
+                <label className = 'font-bold '>Sign Up</label>
+                <input className = 'border outline-none w-full p-3 border-gray-300 rounded-lg' type = 'text' value = {username} onChange = {(e) =>{setUsername(e.target.value)}} placeholder='email'/>
+                <input className = 'border outline-none w-full p-3 border-gray-300 rounded-lg' type = 'password' value = {password} onChange = {(e) =>{setPassword(e.target.value)}} placeholder='password'/>
+                <input className = 'bg-[#FF5733] w-full p-3 font-bold text-white rounded-lg pointer' type = 'submit' value = 'Sign Up'/>
             </form>
             
         </main>
