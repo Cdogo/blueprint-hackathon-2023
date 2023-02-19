@@ -6,6 +6,8 @@ import Feed from '@/components/feed.js'
 
 import { useState } from 'react';
 
+import Image from 'next/image';
+
 const inter = Inter({ subsets: ['latin'] })
 import { useAuthState } from 'react-firebase-hooks/auth';
 
@@ -30,10 +32,10 @@ export default function Home() {
       setWebsite('')
     }
     return (
-      <form onSubmit={CreatePost} className = 'max-w-screen-md w-full'>
-        <label for = 'website'>Create a post</label><br/>
-        <input type = 'text' value = {website} onChange={(e) => {setWebsite(e.target.value)}} name = 'website' placeholder = 'Input Website Here' /><br/>
-        <input type = 'submit' value = 'Create Post'/>
+      <form onSubmit={CreatePost} className = 'max-w-screen-md w-full flex flex-col gap-3 mb-3'>
+        <label for = 'website'className = 'font-bold'>Create a post</label>
+        <input type = 'text' value = {website} onChange={(e) => {setWebsite(e.target.value)}} name = 'website' placeholder = 'Input Website Here' className = 'border outline-none w-full p-3 border-gray-300 rounded-lg'/>
+        <input className = 'bg-[#FF5733] w-full p-3 font-bold text-white rounded-lg pointer' type = 'submit' value = 'Create Post'/>
       </form>
     );
   }
@@ -49,6 +51,7 @@ export default function Home() {
         {user && <CreatePost/>}
         <Feed/>
       </main>
+      <Image className = 'absolute bottom-3 left-3' src = '/Red_Bull.png' width={100} height={50}/>
     </>
   )
 }

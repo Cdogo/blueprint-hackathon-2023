@@ -43,7 +43,7 @@ export default function CommentFeed({id}){
     }
     return(
         <div className = 'absolute right-5 top-7'>
-            {user && <form onSubmit = {PostComment} className = 'flex flex-row justify-center items-center border border-gray-300 p-1 rounded-lg'>
+            {user && <form onSubmit = {PostComment} className = 'flex flex-row justify-center items-center border border-gray-300 p-1 rounded-lg bg-white'>
                 <textarea value = {comment} onChange = {(e)=>{setComment(e.target.value)}} className = 'resize-none p-1 outline-none border-none'></textarea>
                 <input className = 'h-full' type = 'submit' value = 'Post Comment'/>
             </form>}
