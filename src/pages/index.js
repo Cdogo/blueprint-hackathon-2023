@@ -27,18 +27,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-      <div>
-        <h1>Website Rater</h1> 
-        <img></img>
-      </div>
-      <Post 
-      description={"Text"}
-      username = {'Bob'}
-      />
       <Feed/>
-      <CreatePost/>
-
-
       </main>
     </>
   )

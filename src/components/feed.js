@@ -13,12 +13,20 @@ export default function Feed(){
 
     useEffect(() => {
         const getData = async () => {
-            const data = await getDocs(query(collection(db, 'websites'), limit(5)))
-            data.forEach((doc) => {console.log({id:doc.id, ...doc.data()})})
-            setPosts(data.forEach((doc) => {return({id:doc.id, ...doc.data()})}))
+            const data = await getDocs(query(collection(db, 'websites')))
+            let predata = []
+            data.forEach((doc) => {
+                predata.push({id:doc.id, ...doc.data()})
+            })
+            console.log(predata)
+            setPosts(predata)    
+            console.log(posts);
+            
         }
         getData()
     }, [])
 
-    return(<div></div>)
+    return(<div>
+        {posts.length !== 0 && posts.map((post) => {return(<Post username = {post.user} website = {post.link}/>)})}
+    </div>)
 }
