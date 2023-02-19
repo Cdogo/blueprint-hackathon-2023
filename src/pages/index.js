@@ -51,7 +51,7 @@ export default function Home() {
         {user && <CreatePost/>}
         <Feed/>
       </main>
-      <Image className = 'absolute bottom-3 left-3' src = '/Red_Bull.png' width={100} height={50}/>
+      <Image className = 'fixed bottom-3 left-3' src = '/Red_Bull.png' width={100} height={50}/>
     </>
   )
 }

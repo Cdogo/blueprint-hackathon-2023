@@ -7,7 +7,7 @@ import Post from "./post"
 
 export default function Feed(){
     const [posts] = useCollection(firestore.collection('websites').limit(25))
-    return(<div className = 'w-full flex flex-col items-center gap-3'>
+    return(<div className = 'w-full flex flex-col items-center gap-3 overflow-y-auto'>
         {posts && posts.docs.map((post) => {return(<Post key = {post.id} id={post.id} username = {post.data().user} website = {post.data().link}/>)})}
     </div>)
 }
