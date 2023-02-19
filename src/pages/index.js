@@ -1,21 +1,39 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
-import Post from '../components/post.jsx'
 
 import Feed from '@/components/feed.js'
 
 import { useState } from 'react';
 
 const inter = Inter({ subsets: ['latin'] })
+import { useAuthState } from 'react-firebase-hooks/auth';
+
+import { auth, firestore } from "@/components/firebase"
 
 export default function Home() {
-  const [posts, getPosts] = useState(0);
+  let [user] = useAuthState(auth)
 
   const CreatePost = () => {
+    const [website, setWebsite] = useState('')
+
+    const CreatePost = async (e) => {
+      e.preventDefault()
+      const commentRef = firestore.collection(`websites`);
+      var currentdate = new Date();
+      await commentRef.add({
+          link:website,
+          user:user.email,
+        
+      })
+      setWebsite('')
+    }
     return (
-      <button>This is a button</button>
+      <form onSubmit={CreatePost}>
+        <label for = 'website'>Create a post</label><br/>
+        <input type = 'text' value = {website} onChange={(e) => {setWebsite(e.target.value)}} name = 'website' placeholder = 'Input Website Here' /><br/>
+        <input type = 'submit' value = 'Create Post'/>
+      </form>
     );
   }
   return (
@@ -27,7 +45,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-      <Feed/>
+        {user && <CreatePost/>}
+        <Feed/>
       </main>
     </>
   )

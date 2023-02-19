@@ -2,7 +2,7 @@ import React, {useState} from "react";
 
 import { useRouter } from "next/router"
 
-import IframeWithMousePosition from '@/components/test'
+import CommentFeed from "@/components/comments/CommentFeed";
 
 import { db } from "@/components/firebase";
 
@@ -27,6 +27,7 @@ export default function ViewPage(){
 
     return (
     <main className = 'h-full'>
+        <CommentFeed id = {id}/>
         <iframe src = {website} className = 'w-screen h-screen min-h-screen'></iframe>
     </main>)
 }

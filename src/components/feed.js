@@ -24,7 +24,7 @@ export default function Feed(){
             
         }
         getData()
-    }, [])
+    }, [posts])
 
     return(<div>
         {posts.length !== 0 && posts.map((post) => {return(<Post username = {post.user} website = {post.link}/>)})}
