@@ -4,7 +4,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Header(){
     return(
-        <header className = {`w-screen ${inter.className}`}>
+        <header className = {`fixed w-screen ${inter.className}`}>
             <div className = 'flex flex-row justify-between max-w-screen-xl md:px-5 m-auto'>
                 <h1 className = 'w-fit'>Website Reviews</h1>
                 <nav className = 'flex'>
