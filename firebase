@@ -1,0 +1,21 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyByBll-QUBnobVUQL169nkNg8eaVAmFNg0",
+  authDomain: "blueprint-hackathon-2023.firebaseapp.com",
+  projectId: "blueprint-hackathon-2023",
+  storageBucket: "blueprint-hackathon-2023.appspot.com",
+  messagingSenderId: "765034965570",
+  appId: "1:765034965570:web:e394bd990080e860a1dbdb",
+  measurementId: "G-RQYW4V1GH9"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
