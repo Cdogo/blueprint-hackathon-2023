@@ -3,12 +3,16 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import Post from '../components/post.jsx'
+
+import Feed from '@/components/feed.js'
+
+import { useState } from 'react';
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  // function newPost() {
-  //   return );
-  // }
+  const [posts, getPosts] = useState(0);
+
   const CreatePost = () => {
     return (
       <button>This is a button</button>
@@ -23,17 +27,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-      <div>
-        <h1>Website Rater</h1> 
-        <img></img>
-      </div>
-      <Post 
-      description={"Text"}
-      username = {'Bob'}
-      />
-      <CreatePost/>
-
-
+      <Feed/>
       </main>
     </>
   )

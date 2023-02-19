@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
-import Link from 'next/link'
+import { getDatabase } from "firebase/database";
+import React, { Component, useState} from 'react';
+import firebase from "./firebase";
 
-export default function Post({description, username}){
-    return (
-      <div>
-        
-        <p>Description: {description}</p>
-        <p>User: {username}</p>
-     </div>
-    );
-  }
+
+export default function Post({username, website}){
+  return (
+    <div>
+      <iframe src = {website} title = "websiteLink"></iframe>
+      <p>User: {username}</p>
+    </div>
+  );
+}
