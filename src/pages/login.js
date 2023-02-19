@@ -40,7 +40,7 @@ export default function Login({}){
                 <input className = '' type = 'password' value = {password} onChange = {(e) =>{setPassword(e.target.value)}}/><br/>
                 <input className = '' type = 'submit' value = 'Login'/>
             </form>
-            <a href = '/sign-up'>Sign Up</a>
+            
         </main>
     )
 }

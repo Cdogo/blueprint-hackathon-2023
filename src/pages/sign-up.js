@@ -41,7 +41,7 @@ export default function SignUp(){
                 <input className = '' type = 'password' value = {password} onChange = {(e) =>{setPassword(e.target.value)}}/><br/>
                 <input className = '' type = 'submit' value = 'Sign Up'/>
             </form>
-            <a href = '/Login'>Login</a>
+            
         </main>
     )
 }
