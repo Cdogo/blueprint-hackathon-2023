@@ -1,6 +1,8 @@
-import React, {useState, useRef} from "react";
+import React, {useState} from "react";
 
 import { useRouter } from "next/router"
+
+import IframeWithMousePosition from '@/components/test'
 
 import { db } from "@/components/firebase";
 
@@ -15,21 +17,16 @@ export default function ViewPage(){
           if (doc.exists){
             console.log(doc.data())
             setWebsite(doc.data().link)
-            console.log(document.getElementById('website').contentWindow.document.body.scrollHeight)
           } else {
             console.log('Not Found')
           }
         }
       );
 
-    const iframeRef = useRef(null)
-    console.log(iframeRef.currentWindow)
 
-    
+
     return (
     <main className = 'h-full'>
-        <button className = {`w-full h-full min-h-screen`}>
-            <iframe id = 'website' src = {website} height='100%' width = '100%' seamless></iframe>
-        </button>
+        <iframe src = {website} className = 'w-screen h-screen min-h-screen'></iframe>
     </main>)
 }
